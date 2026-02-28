@@ -420,6 +420,117 @@ hr { border-color:#334155; margin:30px 0 20px; }
 @media (max-width:700px) {
   .hero-content h1 { font-size:2.6rem; }
 }
+
+/* ========== THEME‑SPECIFIC FIXES FOR ENGINEERING TOOLS ========== */
+/* ----- Default dark mode overrides (engineer tools) ----- */
+body:not(.cyberpunk):not(.apple) .bg-white\/90,
+body:not(.cyberpunk):not(.apple) .bg-white\/80,
+body:not(.cyberpunk):not(.apple) .bg-gray-50,
+body:not(.cyberpunk):not(.apple) .bg-gray-100,
+body:not(.cyberpunk):not(.apple) .bg-white,
+body:not(.cyberpunk):not(.apple) .bg-green-50,
+body:not(.cyberpunk):not(.apple) .loop-card {
+  background: #1a2635 !important;
+  color: #eef3fc;
+  border-color: #3b4e6b !important;
+}
+body:not(.cyberpunk):not(.apple) .border-white\/50,
+body:not(.cyberpunk):not(.apple) .border-gray-200,
+body:not(.cyberpunk):not(.apple) .border-gray-100,
+body:not(.cyberpunk):not(.apple) .border-gray-300 {
+  border-color: #3b4e6b !important;
+}
+body:not(.cyberpunk):not(.apple) .text-gray-800,
+body:not(.cyberpunk):not(.apple) .text-gray-700,
+body:not(.cyberpunk):not(.apple) .text-gray-600,
+body:not(.cyberpunk):not(.apple) .text-gray-500,
+body:not(.cyberpunk):not(.apple) .text-gray-400,
+body:not(.cyberpunk):not(.apple) .text-gray-900 {
+  color: #cfdcf0 !important;
+}
+body:not(.cyberpunk):not(.apple) input,
+body:not(.cyberpunk):not(.apple) select,
+body:not(.cyberpunk):not(.apple) textarea {
+  background-color: #0f1a2b !important;
+  color: #f0f4ff !important;
+  border-color: #3b4e6b !important;
+}
+body:not(.cyberpunk):not(.apple) .device-table thead {
+  background-color: #1e2b3f !important;
+}
+body:not(.cyberpunk):not(.apple) .device-table th,
+body:not(.cyberpunk):not(.apple) .device-table td {
+  color: #cfdcf0 !important;
+}
+body:not(.cyberpunk):not(.apple) .remove-btn {
+  color: #ff8a8a !important;
+}
+body:not(.cyberpunk):not(.apple) .fa-hand-pointer {
+  color: #3b82f6 !important;
+}
+body:not(.cyberpunk):not(.apple) .bg-gradient-to-r {
+  /* keep gradient buttons, but ensure text white */
+  color: white !important;
+}
+body:not(.cyberpunk):not(.apple) .bg-gradient-to-r.from-green-600,
+body:not(.cyberpunk):not(.apple) .bg-gradient-to-r.from-purple-600,
+body:not(.cyberpunk):not(.apple) .bg-gradient-to-r.from-amber-500,
+body:not(.cyberpunk):not(.apple) .bg-gradient-to-r.from-emerald-600 {
+  background-image: linear-gradient(to right, #2563eb, #1e40af) !important;
+}
+/* fix for system battery area */
+body:not(.cyberpunk):not(.apple) #systemBatteryArea {
+  background: #1e2b3f !important;
+  border-color: #3b4e6b !important;
+}
+body:not(.cyberpunk):not(.apple) #systemBatteryArea .text-green-700 {
+  color: #6ee7b7 !important;
+}
+
+/* ----- Cyberpunk overrides (already added, but extend for new elements) ----- */
+.cyberpunk .bg-white\/90,
+.cyberpunk .bg-white\/80,
+.cyberpunk .bg-gray-50,
+.cyberpunk .bg-gray-100,
+.cyberpunk .bg-white,
+.cyberpunk .bg-green-50,
+.cyberpunk .loop-card {
+  background: #1a1035 !important;
+  border-color: #b27aff !important;
+}
+.cyberpunk #systemBatteryArea {
+  background: #2d1545 !important;
+  border-color: #b27aff !important;
+}
+.cyberpunk #systemBatteryArea .text-green-700 {
+  color: #b78eff !important;
+}
+
+/* ----- Apple overrides (already added) ----- */
+
+/* ===== MOBILE RESPONSIVENESS FOR FIRE ALARM TABLE ===== */
+@media (max-width: 640px) {
+  .overflow-x-auto {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .device-table {
+    min-width: 500px; /* ensures table doesn't squish */
+  }
+  .loop-card .grid-cols-2 {
+    grid-template-columns: 1fr; /* stack standby/alarm on mobile */
+  }
+  .loop-card .grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: 1fr; /* voltage drop inputs stack */
+  }
+  .flex-wrap.gap-3 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .flex-wrap.gap-3 button {
+    width: 100%;
+  }
+}
 </style>
 </head>
 <body>
@@ -711,7 +822,7 @@ hr { border-color:#334155; margin:30px 0 20px; }
     });
   }
 
-  // ========== FULL CALCULATOR CODE (identical to original) ==========
+  // ========== FULL CALCULATOR CODE (identical to original, but with mobile-friendly additions) ==========
   const RESISTIVITY = { copper: 0.0172, aluminum: 0.0282 };
   const panel = document.getElementById('calcPanel');
   const cards = document.querySelectorAll('[data-calc]');
@@ -1072,4 +1183,4 @@ hr { border-color:#334155; margin:30px 0 20px; }
 })();
 </script>
 </body>
-</html>
+                                                                                                               </html>
