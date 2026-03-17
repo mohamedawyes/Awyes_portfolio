@@ -821,16 +821,16 @@ function openCV() {
 function downloadCV() {
   const link = document.createElement('a');
   link.href = cvPath;
-  link.download = 'Mohamed_Awyes_CV.pdf'; // suggested filename
+  link.download = 'Mohamed_Awyes_CV_2026.pdf'; // suggested filename
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
 // then use downloadCV instead of openCV in the event listeners.
-document.getElementById('printCVBtn')?.addEventListener('click', downloadCV);
+document.getElementById('printCVBtn')?.addEventListener('click', openCV);
 document.getElementById('downloadFooterCV')?.addEventListener('click', (e) => {
   e.preventDefault();
-  downloadCV();
+  openCV();
 });
 
   // ========== FULL CALCULATOR CODE ==========
