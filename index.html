@@ -656,7 +656,7 @@ body:not(.cyberpunk):not(.apple) #systemBatteryArea .text-green-700 {
       <h3>Hitachi Rail</h3>
       <div class="company-meta">
         <span>Technical Office Engineer</span>
-        <span class="company-tag">03/2026 – present</span>
+        <span class="company-tag">03/ – present</span>
       </div>
       <ul class="project-list">
         <li class="project-item">
@@ -797,7 +797,7 @@ body:not(.cyberpunk):not(.apple) #systemBatteryArea .text-green-700 {
       <div class="footer-info"><h3>Mohamed A. Awyes</h3><p>System Engineer – Telecom & Railway Signaling</p><div class="footer-links"><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a><a href="#" id="downloadFooterCV"><i class="fas fa-file-pdf"></i> Download CV</a><a href="#"><i class="fas fa-envelope"></i> Email</a></div></div>
       <div class="footer-contact"><p><i class="fas fa-phone-alt"></i> +20 01090045802</p><p><i class="fas fa-map-marker-alt"></i> Zagazig / Abour City, Egypt</p><p><i class="fas fa-at"></i> mohamedawyes5@gmail.com</p></div>
     </div>
-    <hr><p style="color: #94a3b8;">© 2026 Mohamed Abdalla Awyes</p>
+    <hr><p style="color: #94a3b8;">©  Mohamed Abdalla Awyes</p>
   </div>
 </div>
 
@@ -818,11 +818,19 @@ const cvPath = 'Mohamed Awyes cv 2026.pdf'; // <-- change to your actual PDF fil
 function openCV() {
   window.open(cvPath, '_blank'); // opens in new tab (or downloads if browser can't display)
 }
-
-document.getElementById('printCVBtn')?.addEventListener('click', openCV);
+function downloadCV() {
+  const link = document.createElement('a');
+  link.href = cvPath;
+  link.download = 'Mohamed_Awyes_CV.pdf'; // suggested filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+// then use downloadCV instead of openCV in the event listeners.
+document.getElementById('printCVBtn')?.addEventListener('click', downloadCV);
 document.getElementById('downloadFooterCV')?.addEventListener('click', (e) => {
   e.preventDefault();
-  openCV();
+  downloadCV();
 });
 
   // ========== FULL CALCULATOR CODE ==========
